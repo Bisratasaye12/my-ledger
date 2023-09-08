@@ -19,6 +19,7 @@ const CATEGORY_OPTIONS: { value: CategoryFilter; label: string }[] = [
 export function InventoryTable({ items }: InventoryTableProps) {
   const [filterQuery, setFilterQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('all');
+
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const filteredItems = useMemo(() => {
