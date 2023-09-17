@@ -1,9 +1,9 @@
 import { Layout } from './components/Layout';
 import { InventoryTable } from './components/InventoryTable';
-import { INITIAL_INVENTORY } from './data/mockInventory';
+import { useInventory } from './hooks/useInventory';
 
 export default function App() {
-  const items={INITIAL_INVENTORY} = INITIAL_INVENTORY;
+  const { items } = useInventory();
 
   return (
     <Layout>
