@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { CategoryFilter, InventoryItem } from '../types/inventory';
 import { StatusBadge } from './StatusBadge';
 import { SearchBar } from './SearchBar';
@@ -19,7 +19,6 @@ const CATEGORY_OPTIONS: { value: CategoryFilter; label: string }[] = [
 export function InventoryTable({ items }: InventoryTableProps) {
   const [filterQuery, setFilterQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('all');
-
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const filteredItems = useMemo(() => {
@@ -36,8 +35,13 @@ export function InventoryTable({ items }: InventoryTableProps) {
     });
   }, [items, filterQuery, categoryFilter]);
 
+  useEffect(() => {
+    setSelectedIds([]);
+  }, [items]);
+
   const handleSearchChange = (value: string) => {
     setFilterQuery(value);
+    setSelectedIds([]);
   };
 
   const toggleRow = (id: string) => {
