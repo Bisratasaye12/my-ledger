@@ -8,7 +8,7 @@ export const INITIAL_INVENTORY: InventoryItem[] = [
     category: 'vegetable',
     quantityLbs: 420,
     unitPrice: 2.4,
-    harvestDate: '2024-01-27',
+    harvestDate: '2024-01-28',
     status: 'in-stock',
   },
   {
